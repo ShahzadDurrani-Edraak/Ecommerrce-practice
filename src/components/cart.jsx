@@ -1,4 +1,5 @@
 import {useSelector} from 'react-redux'
+import {useEffect} from 'react'
 import {getItemSelector, deleteItem} from '../redux/slices/cartslice'
 import {Link} from 'react-router-dom'
 import {useDispatch} from 'react-redux'
@@ -8,11 +9,19 @@ const Cart = () => {
     const total = items.reduce((a,b) => a+b.price, 0);
     const dispatch = useDispatch();
     
+    useEffect(() => {
+        //console.log(items);
+      },[items])
+     function handleDelete (data){
+        dispatch(deleteItem(data.id))
+        console.log(items);
+     } 
+
   return (
     <>
     <div className="container mt-8 mb-8">
   <div className="row d-flex justify-content-center">
-            <div class="list-group">
+            <div className="list-group">
             {items.map((item) => (
                 <div className='list-group-item'>
                 <div className='custom-inline'>
@@ -20,15 +29,15 @@ const Cart = () => {
                 <img src={item.image} alt={item.namee} width="60"/>
                 </div>
                 <div className='col-md-8'>
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">{item.name}</h5>
+    <div className="d-flex w-100 justify-content-between">
+      <h5 className="mb-1">{item.name}</h5>
     </div>
-    <p class="mb-1">{item.desc}</p>
-    <small class="text-muted bold">${item.price}</small>
+    <p classNam="mb-1">{item.desc}</p>
+    <small className="text-muted bold">${item.price}</small>
     </div>
-    <div className='col-md-2 d-flex justify-content-center'><small>{item.quantity}</small>
-    <Link >
-    <button onClick={e => dispatch(deleteItem(item.id))} className="btn btn-danger text-uppercase mr-2 px-4" >Delete</button>
+    <div className='col-md-2 d-flex justify-content-center'><small className=' item-quantity'>{item.quantity}</small>
+    <Link>
+    <button onClick={e => handleDelete(item)} className="btn btn-danger text-uppercase mr-2 px-4" >Delete</button>
     </Link>
     </div>
     </div>

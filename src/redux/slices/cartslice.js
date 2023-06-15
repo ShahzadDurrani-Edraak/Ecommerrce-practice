@@ -10,7 +10,9 @@ const cartSlice = createSlice({
         },
         deleteItem:(state, action) => {
             const itemId    =   action.payload;
-            state.cart  =   state.cart.findIndex((obj) => obj.id === itemId);
+            const updateState  =   state.filter(obj => obj.id !== itemId);
+
+            return updateState;
         }
     }
 })

@@ -38,7 +38,7 @@ const SingleProduct = () => {
               <p className="about">{desc}</p>
             
 
-              <div className="cart mt-4 align-items-center"> <button className="btn btn-danger text-uppercase mr-2 px-4" onClick={e => dispatch(addItem({name: name, price: price, quantity: 1, desc: desc, image: imgUrl}))}>Add to cart</button> <i className="fa fa-heart text-muted" /> <i className="fa fa-share-alt text-muted" /> </div>
+              <div className="cart mt-4 align-items-center"> <button className="btn btn-danger text-uppercase mr-2 px-4" onClick={e => dispatch(addItem({id: id,name: name, price: price, quantity: 1, desc: desc, image: imgUrl}))}>Add to cart</button> <i className="fa fa-heart text-muted" /> <i className="fa fa-share-alt text-muted" /> </div>
             </div>
           </div>
         </div>

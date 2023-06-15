@@ -19,6 +19,17 @@
 .custom-inline img {
   margin-right: 20px;
 }
+.item-quantity{
+  padding: 5px;
+  background-color: green;
+  border-radius: 50%;
+  color: #ffff;
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  margin-right: 20px;
+}
 
 .qty-input {
   color: #000;
